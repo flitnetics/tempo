@@ -59,7 +59,6 @@ func newSearchProgress(ctx context.Context, limit, totalJobs, totalBlocks int, t
 		limit:            limit,
 		finishedRequests: 0,
 		resultsMetrics: &tempopb.SearchMetrics{
-			TotalBlocks:     uint32(totalBlocks),
 			TotalBlockBytes: totalBlockBytes,
 			TotalJobs:       uint32(totalJobs),
 		},
@@ -172,7 +171,6 @@ func (r *searchProgress) result() *shardedSearchResults {
 		Metrics: &tempopb.SearchMetrics{
 			InspectedTraces: r.resultsMetrics.InspectedTraces,
 			InspectedBytes:  r.resultsMetrics.InspectedBytes,
-			TotalBlocks:     r.resultsMetrics.TotalBlocks,
 			CompletedJobs:   r.resultsMetrics.CompletedJobs,
 			TotalJobs:       r.resultsMetrics.TotalJobs,
 			TotalBlockBytes: r.resultsMetrics.TotalBlockBytes,

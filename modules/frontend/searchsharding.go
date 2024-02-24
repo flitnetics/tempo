@@ -232,13 +232,13 @@ func (s searchSharder) RoundTrip(r *http.Request) (*http.Response, error) {
 		"started_requests", startedReqs,
 		"cancelled_requests", cancelledReqs,
 		"finished_requests", overallResponse.finishedRequests,
-		"totalBlocks", overallResponse.response.Metrics.TotalBlocks,
+		//"totalBlocks", overallResponse.response.Metrics.TotalBlocks,
 		"inspectedBytes", overallResponse.response.Metrics.InspectedBytes,
 		"inspectedTraces", overallResponse.response.Metrics.InspectedTraces,
 		"totalBlockBytes", overallResponse.response.Metrics.TotalBlockBytes)
 
 	// all goroutines have finished, we can safely access searchResults fields directly now
-	span.SetTag("totalBlocks", overallResponse.response.Metrics.TotalBlocks)
+	//span.SetTag("totalBlocks", overallResponse.response.Metrics.TotalBlocks)
 	span.SetTag("inspectedBytes", overallResponse.response.Metrics.InspectedBytes)
 	span.SetTag("inspectedTraces", overallResponse.response.Metrics.InspectedTraces)
 	span.SetTag("totalBlockBytes", overallResponse.response.Metrics.TotalBlockBytes)
